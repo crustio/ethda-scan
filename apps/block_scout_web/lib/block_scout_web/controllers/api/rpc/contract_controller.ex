@@ -3,7 +3,6 @@ defmodule BlockScoutWeb.API.RPC.ContractController do
 
   require Logger
 
-  alias BlockScoutWeb.AddressView
   alias BlockScoutWeb.API.RPC.{AddressController, Helper}
   alias Explorer.Chain
   alias Explorer.Chain.{Address, Hash, SmartContract}
@@ -26,7 +25,7 @@ defmodule BlockScoutWeb.API.RPC.ContractController do
   @addresses_limit 10
   @api_true [api?: true]
 
-  @doc"""
+  @doc """
     Function to handle getcontractcreation request
   """
   @spec getcontractcreation(Plug.Conn.t(), map()) :: Plug.Conn.t()
@@ -54,10 +53,6 @@ defmodule BlockScoutWeb.API.RPC.ContractController do
 
   def getcontractcreation(conn, _params) do
     render(conn, :error, error: @addresses_required, data: @addresses_required)
-  end
-
-  def tokennfttx(conn, params) do
-
   end
 
   def verify(conn, %{"addressHash" => address_hash} = params) do
